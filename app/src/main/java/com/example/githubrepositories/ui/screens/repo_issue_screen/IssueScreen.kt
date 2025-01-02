@@ -1,8 +1,5 @@
-package com.example.githubrepositories
+package com.example.githubrepositories.ui.screens.repo_issue_screen
 
-import android.text.TextUtils.EllipsizeCallback
-import android.text.TextUtils.ellipsize
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -11,45 +8,35 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.InspectableModifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.max
+import com.example.githubrepositories.DefaultImageModifier
+import com.example.githubrepositories.R
+import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
-@Preview(
-    showBackground = true
-)
+
 @Composable
-fun IssuePage() {
+fun IssueScreen() {
     Row(
         modifier = Modifier
             .padding(8.dp)
             .fillMaxWidth()
             .background(
                 color = MaterialTheme.colorScheme.errorContainer,
-                shape = RoundedCornerShape(12.dp)
+                shape = MaterialTheme.shapes.medium
             )
             .clickable {
 
             }
+
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.sad_face),
-            contentDescription = null,
-            modifier = DefaultImageModifier()
-        )
+        DefaultImageModifier(img = R.drawable.sad_face)
 
         Column(
             Modifier.padding(8.dp)
@@ -61,38 +48,53 @@ fun IssuePage() {
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
-                    fontWeight = FontWeight.Bold
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onErrorContainer
                 )
                 Text(
                     text = "Open",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onErrorContainer
                 )
             }
 
-            Spacer(Modifier.height(4.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             Text(
                 text = "NONE",
                 maxLines = 4,
-                overflow = TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onErrorContainer
+
             )
 
             Spacer(Modifier.height(2.dp))
 
-            Text(
-                text = buildAnnotatedString {
-                    // from gpt
-                    withStyle(
-                        style = SpanStyle(fontWeight =  FontWeight.Bold)
-                    ) {
-                        append("Created At: ")
-                    }
-                    append("2005-6-7")
-                },
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis
-            )
+            Row() {
+
+                Text(
+                    text = "Created At: ",
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = Bold
+                )
+                Text(
+                    text = "2005-6-7",
+                    style = MaterialTheme.typography.labelMedium
+                )
+            }
 
         }
 
+    }
+}
+
+@Preview(
+    showBackground = true
+)
+@Composable
+private fun Prev() {
+    GitHubRepositoriesTheme {
+        IssueScreen()
     }
 }
