@@ -18,7 +18,7 @@ val Typography = Typography(
         letterSpacing = 0.5.sp
     ),
     bodyMedium = TextStyle(
-        fontFamily = FontFamily(Font(R.font.poppins_bold)),
+        fontFamily = FontFamily(Font(R.font.poppins_medium)),
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     ),

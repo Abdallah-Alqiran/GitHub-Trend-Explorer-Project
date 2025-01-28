@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.navigation
+package com.example.githubrepositories.navigation
 
 const val USER_ID = "user_id"
 
@@ -12,7 +12,8 @@ sealed class Screens(val route: String) {
         }
     }
 
-
-
     data object RepoIssues: Screens("repo_issue_screen")
+
+    data object Splash: Screens("splash_screen")
+
 }

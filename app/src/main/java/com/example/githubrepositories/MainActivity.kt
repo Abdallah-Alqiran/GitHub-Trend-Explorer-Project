@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.githubrepositories.ui.screens.preview_screen.PreviewScreen
+import com.example.githubrepositories.preview_screen.PreviewScreen
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 
@@ -52,17 +52,5 @@ fun PreviewAll() {
     }
 }
 
-@Composable
-fun DefaultImageModifier(img: Int) {
-    Image(
-        painter = painterResource(id = img),
-        contentDescription = null,
-        Modifier
-            .padding(start = 8.dp, top = 8.dp)
-            .size(50.dp)
-            .clip(shape = CircleShape)
-    )
-
-}
 
 

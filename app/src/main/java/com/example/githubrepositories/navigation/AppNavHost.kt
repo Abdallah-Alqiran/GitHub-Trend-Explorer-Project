@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.navigation
+package com.example.githubrepositories.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,25 +10,24 @@ import androidx.navigation.navArgument
 import com.example.githubrepositories.ui.screens.repo_details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.repo_issue_screen.IssueScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
+import com.example.githubrepositories.ui.screens.splash_screen.SplashScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
-    onTitleChange: (String) -> Unit
+    onPageChange: (String, Boolean) -> Unit,
 ) {
     // controller
-
     val navController = rememberNavController()
 
     // Host
     NavHost(
         navController = navController,
-        startDestination = Screens.RepoList.route,
+        startDestination = Screens.Splash.route,
         modifier = modifier
     ) {
         composable(route = Screens.RepoList.route) {
-            onTitleChange("Github Repositories")
-
+            onPageChange("Github Repositories", false)
             RepoListScreen(
                 onRepoItem = {
                     navController.navigate(Screens.RepoDetails.passId(it))
@@ -42,20 +41,37 @@ fun AppNavHost(
                 type = NavType.StringType
             })
         ) {navBackStackEntry ->
-            onTitleChange("Details")
+            onPageChange("Details", true)
 
             val id = navBackStackEntry.arguments?.getString(USER_ID)
             id?.let {
-                DetailsScreen(it)
+                DetailsScreen(
+                    it,
+                    onDetails = {
+                        navController.navigate(Screens.RepoIssues.route)
+                    }
+                )
             }
         }
 
-
-
         composable(route = Screens.RepoIssues.route) {
-            onTitleChange("Issues")
-
+            onPageChange("Issues", true)
             IssueScreen()
         }
+
+        composable(route = Screens.Splash.route) {
+            onPageChange("Github Repositories", false)
+            SplashScreen(
+                onSplash = {
+                    navController.navigate(Screens.RepoList.route) {
+                        popUpTo(Screens.Splash.route) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
+
+        }
+
     }
 }

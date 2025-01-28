@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.top_app_bar
+package com.example.githubrepositories.ui.pieces.top_app_bar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,8 @@ import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(modifier: Modifier = Modifier, title: String) {
-    TopAppBar(modifier = modifier
+    TopAppBar(
+        modifier = modifier
         .background(MaterialTheme.colorScheme.surface),
         title = {
         Row(

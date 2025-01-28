@@ -21,10 +21,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.githubrepositories.DefaultImageModifier
 import com.example.githubrepositories.R
+import com.example.githubrepositories.ui.pieces.default_image_modifier.DefaultImageModifier
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
-import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRepoUIModel
+import com.example.githubrepositories.model.GitHubRepoUIModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
@@ -73,7 +73,6 @@ fun RepoListItem(
                 Image(painter = painterResource(id = R.drawable.star),
                     contentDescription = null,
                     // change the SVG image color
-                    colorFilter = ColorFilter.tint(color = Yellow),
                     modifier = Modifier
                         .padding(start = 8.dp)
                         .size(30.dp)
