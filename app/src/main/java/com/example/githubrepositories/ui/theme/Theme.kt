@@ -19,12 +19,13 @@ private val LightColorScheme = lightColorScheme(
     tertiary = Pink40,
     background = Color(0xFFFFFBFE),
     surface = Color(0xAAE7EDFC),
+    onSurface = Color(0xFF1C1B1F),
     onPrimary = Color.White,
     onSecondary = Color.White,
     onTertiary = Color.White,
     onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
     primaryContainer = Color(0xC6E6E7E9),
+    onPrimaryContainer = Color(0xFF5FA479),
     errorContainer = Color(0xFFF3E7E5),
     onErrorContainer = Color(0xFF000000)
 )

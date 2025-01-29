@@ -69,5 +69,8 @@ dependencies {
 
     implementation(libs.androidx.navigation.compose)
 
+    implementation("com.airbnb.android:lottie:6.6.2")
+    implementation("com.airbnb.android:lottie-compose:6.6.2")
+
 
 }

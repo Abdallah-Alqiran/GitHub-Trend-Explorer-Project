@@ -16,4 +16,6 @@ sealed class Screens(val route: String) {
 
     data object Splash: Screens("splash_screen")
 
+    data object FailedLoading: Screens("failed_loading")
+
 }

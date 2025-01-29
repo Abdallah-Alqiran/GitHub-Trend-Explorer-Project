@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.githubrepositories.ui.screens.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.repo_details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.repo_issue_screen.IssueScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
@@ -63,7 +64,7 @@ fun AppNavHost(
             onPageChange("Github Repositories", false)
             SplashScreen(
                 onSplash = {
-                    navController.navigate(Screens.RepoList.route) {
+                    navController.navigate(Screens.FailedLoading.route) {
                         popUpTo(Screens.Splash.route) {
                             inclusive = true
                         }
@@ -71,6 +72,20 @@ fun AppNavHost(
                 }
             )
 
+        }
+
+
+        composable(route = Screens.FailedLoading.route) {
+            onPageChange("Github Repositories", false)
+            FailedLoadingScreen(
+                onFailed = {
+                    navController.navigate(Screens.RepoList.route) {
+                        popUpTo(Screens.FailedLoading.route) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
 
     }

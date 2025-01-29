@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
 import com.example.githubrepositories.preview_data.fakeGitHubRepoListUIModel
+import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
 import com.example.githubrepositories.ui.screens.repo_details_screen.components.TextAndIcon
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
@@ -87,24 +88,7 @@ fun DetailsScreen(
                 .weight(1f)
         )
 
-        Button(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(50.dp),
-            colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.primary),
-            elevation = ButtonDefaults.buttonElevation(3.dp),
-            shape = RoundedCornerShape(20),
-            onClick = {
-                onDetails()
-            }
-        ) {
-            Text(
-                text = "Show Issues",
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onPrimary
-            )
-
-        }
+        DefaultButton("Show Issues", onClick = onDetails)
 
     }
 

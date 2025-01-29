@@ -19,7 +19,9 @@ This Android application is being developed as part of the DEPI initiative. The 
 
 ---
 #### App List Screen  
-<img src="app/src/main/res/drawable/first_page.png" width="300" height="600" />
+<img src="app/src/main/res/drawable/loading_page.png" width="300" height="600" />
+<img src="app/src/main/res/drawable/failed_page.png" width="300" height="600" />
+<img src="app/src/main/res/drawable/repos_page.png" width="300" height="600" />
 <img src="app/src/main/res/drawable/issue_page.png" width="300" height="600" />
 <img src="app/src/main/res/drawable/details_page.png" width="300" height="600" />
 
