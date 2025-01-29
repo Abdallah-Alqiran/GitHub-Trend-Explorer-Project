@@ -37,7 +37,7 @@ fun IssueItemScreen() {
             }
 
     ) {
-        DefaultImageModifier(img = R.drawable.sad_face)
+        DefaultImageModifier(img = R.drawable.ic_issues)
 
         Column(
             Modifier.padding(8.dp)
