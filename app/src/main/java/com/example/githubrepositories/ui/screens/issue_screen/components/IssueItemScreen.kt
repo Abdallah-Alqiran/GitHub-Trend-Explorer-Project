@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.screens.repo_issue_screen.components
+package com.example.githubrepositories.ui.screens.issue_screen.components
 
 
 import androidx.compose.foundation.background

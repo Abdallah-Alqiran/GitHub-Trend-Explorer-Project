@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.screens.repo_details_screen
+package com.example.githubrepositories.ui.screens.details_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -10,9 +10,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
 import com.example.githubrepositories.preview_data.fakeGitHubRepoListUIModel
 import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
-import com.example.githubrepositories.ui.screens.repo_details_screen.components.TextAndIcon
+import com.example.githubrepositories.ui.screens.details_screen.components.TextAndIcon
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable

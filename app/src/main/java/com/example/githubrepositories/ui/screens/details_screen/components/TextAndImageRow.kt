@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.screens.repo_details_screen.components
+package com.example.githubrepositories.ui.screens.details_screen.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row

@@ -1,4 +1,4 @@
-package com.example.githubrepositories.navigation
+package com.example.githubrepositories.ui.navigation
 
 const val USER_ID = "user_id"
 

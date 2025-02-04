@@ -22,7 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.githubrepositories.R
-import com.example.githubrepositories.navigation.AppNavHost
+import com.example.githubrepositories.ui.navigation.AppNavHost
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable

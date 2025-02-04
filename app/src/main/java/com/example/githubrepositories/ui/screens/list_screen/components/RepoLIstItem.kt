@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.screens.repo_list_screen.components
+package com.example.githubrepositories.ui.screens.list_screen.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,15 +15,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color.Companion.Yellow
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
 import com.example.githubrepositories.ui.pieces.default_image_modifier.DefaultImageModifier
-import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
+import com.example.githubrepositories.ui.screens.list_screen.RepoListScreen
 import com.example.githubrepositories.model.GitHubRepoUIModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
