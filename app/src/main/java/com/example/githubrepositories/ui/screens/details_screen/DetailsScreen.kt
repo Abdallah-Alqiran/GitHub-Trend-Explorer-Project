@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -31,64 +32,64 @@ fun DetailsScreen(
     onDetails: () -> Unit = {}
 ) {
     val id = i.toInt()
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        Image(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp)
-                .height(300.dp),
-            painter = painterResource(id = fakeGitHubRepoListUIModel[id].avatar),
-            contentDescription = null
-        )
-        Text(
-            modifier = Modifier.fillMaxWidth(),
-            textAlign = TextAlign.Center,
-            text = fakeGitHubRepoListUIModel[id].title,
-            style = MaterialTheme.typography.titleLarge,
-            color = MaterialTheme.colorScheme.onSurface
-        )
+        item {
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            TextAndIcon(
-                fakeGitHubRepoListUIModel[id].stars.toString(),
-                R.drawable.star
+            Image(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .height(300.dp),
+                painter = painterResource(id = fakeGitHubRepoListUIModel[id].avatar),
+                contentDescription = null
             )
-            TextAndIcon(
-                fakeGitHubRepoListUIModel[id].owner,
-                R.drawable.blue_circle
+            Text(
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = TextAlign.Center,
+                text = fakeGitHubRepoListUIModel[id].title,
+                style = MaterialTheme.typography.titleLarge,
+                color = MaterialTheme.colorScheme.onSurface
             )
-            TextAndIcon(
-                123456.toString(),
-                R.drawable.ic_fork
+
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                TextAndIcon(
+                    fakeGitHubRepoListUIModel[id].stars.toString(),
+                    R.drawable.star
+                )
+                TextAndIcon(
+                    fakeGitHubRepoListUIModel[id].owner,
+                    R.drawable.blue_circle
+                )
+                TextAndIcon(
+                    123456.toString(),
+                    R.drawable.ic_fork
+                )
+            }
+
+
+            Text(
+                modifier = Modifier.padding(horizontal = 16.dp),
+                text = fakeGitHubRepoListUIModel[id].description,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface
             )
+
+
+
+            DefaultButton("Show Issues", onClick = onDetails)
+
         }
-
-
-        Text(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = fakeGitHubRepoListUIModel[id].description,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurface
-        )
-
-        Spacer(
-            modifier = Modifier
-                .weight(1f)
-        )
-
-        DefaultButton("Show Issues", onClick = onDetails)
-
     }
-
 }
 
 

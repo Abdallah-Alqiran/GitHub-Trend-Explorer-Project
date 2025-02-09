@@ -16,7 +16,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TextAndIcon(text: String, image: Int) {
     Row(
-        modifier = Modifier.padding(10.dp),
+        modifier = Modifier
+            .padding(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
@@ -26,7 +27,7 @@ fun TextAndIcon(text: String, image: Int) {
         )
         Image(
             modifier = Modifier
-                .padding(6.dp)
+                .padding(4.dp)
                 .width(40.dp)
                 .height(40.dp),
             painter = painterResource(id = image),
