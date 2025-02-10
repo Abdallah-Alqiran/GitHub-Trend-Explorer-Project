@@ -1,5 +1,6 @@
 package com.example.githubrepositories.data
 
+// creating constants we will use in retrofit and room
 class Constants {
     companion object{
         // retrofit

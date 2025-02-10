@@ -1,15 +1,16 @@
 package com.example.githubrepositories.data.mapper
 
 import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
-import com.example.githubrepositories.model.GitHubRepoUIModel
-
-fun GithubReposDataModel.toGithubRepoDomainModel(): List<GitHubRepoUIModel> {
+import com.example.githubrepositories.domain.model.GithubRepoDomainModel
+import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRepoUIModel
+// creating extension function to return Github repo model
+// that we will pass to the UI later and put it in the screen
+fun GithubReposDataModel.toGithubRepoDomainModel(): List<GithubRepoDomainModel> {
     return this.items.map { item ->
-        GitHubRepoUIModel(
+        GithubRepoDomainModel(
             id = item.id,
-            title = item.name,
-            // watch out here I have it int and in the real case it's string
-            avatar = item.owner.avatar_url.toInt(),
+            name = item.name,
+            avatar = item.owner.avatar_url,
             description = item.description,
             stars = item.stargazers_count,
             owner = item.owner.login

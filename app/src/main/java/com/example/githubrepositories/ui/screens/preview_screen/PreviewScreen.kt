@@ -1,4 +1,4 @@
-package com.example.githubrepositories.preview_screen
+package com.example.githubrepositories.ui.screens.preview_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

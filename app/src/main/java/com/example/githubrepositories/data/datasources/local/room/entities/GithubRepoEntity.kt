@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.githubrepositories.data.Constants.Companion.GITHUB_REPOS_TABLE
 
+// creating the table
 @Entity(tableName = GITHUB_REPOS_TABLE)
 data class GithubRepoEntity(
     @PrimaryKey(autoGenerate = false)

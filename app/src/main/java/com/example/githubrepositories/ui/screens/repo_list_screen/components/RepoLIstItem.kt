@@ -1,4 +1,4 @@
-package com.example.githubrepositories.ui.screens.list_screen.components
+package com.example.githubrepositories.ui.screens.repo_list_screen.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,8 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
 import com.example.githubrepositories.ui.pieces.default_image_modifier.DefaultImageModifier
-import com.example.githubrepositories.ui.screens.list_screen.RepoListScreen
-import com.example.githubrepositories.model.GitHubRepoUIModel
+import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
+import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRepoUIModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
@@ -43,7 +43,7 @@ fun RepoListItem(
             onRepoItem(gitHubRepoUIModel.id.toString())
         }
     ) {
-        DefaultImageModifier(img = gitHubRepoUIModel.avatar)
+        DefaultImageModifier(img = gitHubRepoUIModel.avatar.toInt())
 
         Column(
             modifier = Modifier
@@ -53,7 +53,7 @@ fun RepoListItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = gitHubRepoUIModel.title,
+                    text = gitHubRepoUIModel.name,
                     // the same as the spacer
                     modifier = Modifier.weight(1f),
                     style = MaterialTheme.typography.titleMedium,

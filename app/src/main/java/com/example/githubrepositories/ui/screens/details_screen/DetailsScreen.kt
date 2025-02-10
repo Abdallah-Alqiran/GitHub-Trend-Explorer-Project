@@ -3,9 +3,7 @@ package com.example.githubrepositories.ui.screens.details_screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,7 +19,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
-import com.example.githubrepositories.preview_data.fakeGitHubRepoListUIModel
+import com.example.githubrepositories.ui.screens.repo_list_screen.priview.fakeGitHubRepoListUIModel
 import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
 import com.example.githubrepositories.ui.screens.details_screen.components.TextAndIcon
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
@@ -44,13 +42,13 @@ fun DetailsScreen(
                     .fillMaxWidth()
                     .padding(16.dp)
                     .height(300.dp),
-                painter = painterResource(id = fakeGitHubRepoListUIModel[id].avatar),
+                painter = painterResource(id = fakeGitHubRepoListUIModel[id].avatar.toInt()),
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                text = fakeGitHubRepoListUIModel[id].title,
+                text = fakeGitHubRepoListUIModel[id].name,
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onSurface
             )

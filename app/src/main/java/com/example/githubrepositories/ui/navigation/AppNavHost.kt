@@ -10,7 +10,7 @@ import androidx.navigation.navArgument
 import com.example.githubrepositories.ui.screens.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.issue_screen.IssueScreen
-import com.example.githubrepositories.ui.screens.list_screen.RepoListScreen
+import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
 import com.example.githubrepositories.ui.screens.splash_screen.SplashScreen
 
 @Composable

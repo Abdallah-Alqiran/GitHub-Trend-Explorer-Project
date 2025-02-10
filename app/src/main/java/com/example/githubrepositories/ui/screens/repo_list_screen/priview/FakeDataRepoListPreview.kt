@@ -1,12 +1,12 @@
-package com.example.githubrepositories.preview_data
+package com.example.githubrepositories.ui.screens.repo_list_screen.priview
 
 import com.example.githubrepositories.R
-import com.example.githubrepositories.model.GitHubRepoUIModel
+import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRepoUIModel
 
 val fakeGitHubRepoUIModel0 = GitHubRepoUIModel(
     id = 0,
-    title = "Fitness App",
-    avatar = R.drawable.happy_face,
+    name = "Fitness App",
+    avatar = R.drawable.happy_face.toString(),
     description = "DEPI Graduation Project",
     stars = 765,
     owner = "My Team"
@@ -14,24 +14,24 @@ val fakeGitHubRepoUIModel0 = GitHubRepoUIModel(
 
 val fakeGitHubRepoUIModel1 = GitHubRepoUIModel(
     id = 1,
-    title = "Fitness App",
-    avatar = R.drawable.face,
+    name = "Fitness App",
+    avatar = R.drawable.face.toString(),
     description = "DEPI Graduation Project",
     stars = 765,
     owner = "My Team"
 )
 val fakeGitHubRepoUIModel2 = GitHubRepoUIModel(
     id = 2,
-    title = "Places in Qena",
-    avatar = R.drawable.kotlin_logo,
+    name = "Places in Qena",
+    avatar = R.drawable.kotlin_logo.toString(),
     description = "SignIn & Places App: SignIn validation, dynamic Qena places list, smooth RecyclerView animations.",
     stars = 765,
     owner = "Abdallah Alqiran"
 )
 val fakeGitHubRepoUIModel3 = GitHubRepoUIModel(
     id = 3,
-    title = "GitHub Trend Explorer Project",
-    avatar = R.drawable.my_bad_logo,
+    name = "GitHub Trend Explorer Project",
+    avatar = R.drawable.my_bad_logo.toString(),
     description = "This is a task assigned to us as part of the Digital Egypt Pioneers Initiative (DEPI). In this project, working on creating a platform to display popular GitHub repositories.",
     stars = 765,
     owner = "Abdallah Alqiran"
