@@ -28,7 +28,6 @@ import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 @Composable
 fun RepoListItem(
     gitHubRepoUIModel: GitHubRepoUIModel,
-    modifier: Modifier = Modifier,
     onRepoItem: (id: String) -> Unit = {},
 ) {
     Row(modifier = Modifier

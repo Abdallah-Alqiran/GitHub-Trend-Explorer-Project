@@ -11,8 +11,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.githubrepositories.ui.screens.preview_screen.PreviewScreen
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
-
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun PreviewAll() {
     GitHubRepositoriesTheme {
         PreviewScreen()
-
     }
 }
 

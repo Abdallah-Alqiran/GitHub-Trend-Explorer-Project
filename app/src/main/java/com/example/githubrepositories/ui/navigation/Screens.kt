@@ -12,6 +12,8 @@ sealed class Screens(val route: String) {
         }
     }
 
+    data object GoBack: Screens("go_back")
+
     data object RepoIssues: Screens("repo_issue_screen")
 
     data object Splash: Screens("splash_screen")

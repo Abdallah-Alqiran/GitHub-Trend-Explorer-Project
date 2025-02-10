@@ -2,10 +2,10 @@ package com.example.githubrepositories.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.githubrepositories.ui.screens.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.details_screen.DetailsScreen
@@ -17,9 +17,8 @@ import com.example.githubrepositories.ui.screens.splash_screen.SplashScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     onPageChange: (String, Boolean) -> Unit,
+    navController: NavHostController
 ) {
-    // controller
-    val navController = rememberNavController()
 
     // Host
     NavHost(
@@ -71,7 +70,6 @@ fun AppNavHost(
                     }
                 }
             )
-
         }
 
 
@@ -86,6 +84,10 @@ fun AppNavHost(
                     }
                 }
             )
+        }
+
+        composable(route = Screens.GoBack.route) {
+
         }
 
     }

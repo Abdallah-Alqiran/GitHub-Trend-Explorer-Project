@@ -21,13 +21,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.githubrepositories.R
 import com.example.githubrepositories.ui.navigation.AppNavHost
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
-fun PreviewScreen(modifier: Modifier = Modifier) {
+fun PreviewScreen(
+) {
 
+    val navController = rememberNavController()
     var appBarTitle: String by remember {
         mutableStateOf(
             ""
@@ -42,7 +46,7 @@ fun PreviewScreen(modifier: Modifier = Modifier) {
 
     Scaffold(
         topBar = {
-            TopAppBar(text = appBarTitle, showArrow)
+            TopAppBar(text = appBarTitle, showArrow = showArrow, navController)
         }
     ) {
         AppNavHost(
@@ -50,16 +54,16 @@ fun PreviewScreen(modifier: Modifier = Modifier) {
             onPageChange = { newTitle, check ->
                 appBarTitle = newTitle
                 showArrow = check
-            }
+            },
+            navController
         )
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBar(text: String, showArrow: Boolean) {
+fun TopAppBar(text: String, showArrow: Boolean, navController: NavHostController) {
     TopAppBar(
-
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -74,7 +78,7 @@ fun TopAppBar(text: String, showArrow: Boolean) {
         navigationIcon = {
             if (showArrow) {
                 IconButton(onClick = {
-
+                    navController.popBackStack()
                 }) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_back_arrow),
