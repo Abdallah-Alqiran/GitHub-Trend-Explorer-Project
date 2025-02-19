@@ -4,15 +4,13 @@ import android.util.Log
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
 import com.example.githubrepositories.di.NetworkModule
+import javax.inject.Inject
 
 // this remote repo will deal with retrofit
 // (go back to recommended app architecture)
 // we will take instance from retrofit
-class GithubReposRemoteDataSource(
-    private val githubAPI: GithubAPI = NetworkModule
-        .provideGithubApi(
-            NetworkModule.provideRetrofitInstance()
-        )
+class GithubReposRemoteDataSource @Inject constructor(
+    private val githubAPI: GithubAPI
 ) {
     // this function will return the data if there is no errors
     fun fetchGithubRepos(): GithubReposDataModel {
