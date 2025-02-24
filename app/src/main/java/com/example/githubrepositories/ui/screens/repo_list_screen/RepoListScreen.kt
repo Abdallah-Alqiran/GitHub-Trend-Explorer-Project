@@ -7,9 +7,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.githubrepositories.ui.screens.repo_list_screen.components.RepoListItem
 import com.example.githubrepositories.ui.screens.repo_list_screen.priview.fakeGitHubRepoListUIModel
 import com.example.githubrepositories.ui.screens.repo_list_screen.viewmodel.RepoListViewModel
@@ -27,13 +29,14 @@ fun RepoListScreen(
         repoListViewModel.requestGithubRepoList()
     }
 
-    // hello
+    val repoList by repoListViewModel.repoListStateFlow.collectAsStateWithLifecycle()
+
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        items(fakeGitHubRepoListUIModel) {
+        items(repoList) {
             RepoListItem(onRepoItem = onRepoItem, gitHubRepoUIModel = it)
         }
     }

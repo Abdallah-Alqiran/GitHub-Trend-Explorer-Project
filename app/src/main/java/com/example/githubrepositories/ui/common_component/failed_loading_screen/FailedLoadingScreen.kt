@@ -1,7 +1,4 @@
-@file:Suppress("DEPRECATION")
-
-package com.example.githubrepositories.ui.screens.failed_loading_screen
-
+package com.example.githubrepositories.ui.common_component.failed_loading_screen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize

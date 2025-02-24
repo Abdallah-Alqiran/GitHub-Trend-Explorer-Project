@@ -6,5 +6,5 @@ import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRe
 // It's hard for hilt to handle interface,
 // So we need to create module, we created it in the DI package
 interface GithubReposRepository {
-    fun fetchGithubRepos(): List<GithubRepoDomainModel>
+    suspend fun fetchGithubRepos(): List<GithubRepoDomainModel>
 }

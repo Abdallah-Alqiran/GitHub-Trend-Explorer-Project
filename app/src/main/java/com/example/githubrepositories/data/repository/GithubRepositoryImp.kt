@@ -16,7 +16,7 @@ class GithubRepositoryImp @Inject constructor(
     private val githubReposLocalDataSource: GithubReposLocalDataSource
 ): GithubReposRepository {
     // create this interface in the domain repository
-    override fun fetchGithubRepos(): List<GithubRepoDomainModel> {
+    override suspend fun fetchGithubRepos(): List<GithubRepoDomainModel> {
         return githubReposRemoteDataSource.fetchGithubRepos().toGithubRepoDomainModel()
     }
 

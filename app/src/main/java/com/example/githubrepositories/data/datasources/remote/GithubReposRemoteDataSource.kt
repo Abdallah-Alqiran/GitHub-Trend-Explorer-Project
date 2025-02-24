@@ -13,7 +13,7 @@ class GithubReposRemoteDataSource @Inject constructor(
     private val githubAPI: GithubAPI
 ) {
     // this function will return the data if there is no errors
-    fun fetchGithubRepos(): GithubReposDataModel {
+    suspend fun fetchGithubRepos(): GithubReposDataModel {
         return try {
             githubAPI.fetchGithubRepoData().body() as GithubReposDataModel
         } catch (e: Exception) {

@@ -74,7 +74,11 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     //coil
-//    implementation("io.coil-kt.coil3:coil-compose:2.6.0")
+//    implementation("io.coil-kt.coil3:coil:3.1.0")
+//    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.1")
+    implementation("io.coil-kt:coil:2.5.0")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
 
     // lottie
     implementation("com.airbnb.android:lottie:6.6.2")

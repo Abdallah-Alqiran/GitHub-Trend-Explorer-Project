@@ -10,5 +10,5 @@ import retrofit2.http.GET
 // In the Network Module we will make it's module
 interface GithubAPI {
     @GET(END_REMOTE_URL)
-    fun fetchGithubRepoData(): Response<GithubReposDataModel>
+    suspend fun fetchGithubRepoData(): Response<GithubReposDataModel>
 }

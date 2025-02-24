@@ -7,11 +7,11 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.githubrepositories.ui.screens.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.issue_screen.IssueScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
-import com.example.githubrepositories.ui.screens.splash_screen.SplashScreen
+import com.example.githubrepositories.ui.common_component.animate_shimmer.SplashScreen
+import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 
 @Composable
 fun AppNavHost(
@@ -46,7 +46,7 @@ fun AppNavHost(
             val id = navBackStackEntry.arguments?.getString(USER_ID)
             id?.let {
                 DetailsScreen(
-                    it,
+                    it.toInt(),
                     onDetails = {
                         navController.navigate(Screens.RepoIssues.route)
                     }
@@ -89,6 +89,5 @@ fun AppNavHost(
         composable(route = Screens.GoBack.route) {
 
         }
-
     }
 }

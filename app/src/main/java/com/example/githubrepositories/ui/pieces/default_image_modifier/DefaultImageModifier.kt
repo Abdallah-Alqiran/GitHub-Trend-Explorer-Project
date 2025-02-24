@@ -7,13 +7,14 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun DefaultImageModifier(img: Int) {
+fun DefaultImageModifier(img: Painter) {
     Image(
-        painter = painterResource(id = img),
+        painter = img,
         contentDescription = null,
         Modifier
             .padding(start = 8.dp, top = 8.dp)

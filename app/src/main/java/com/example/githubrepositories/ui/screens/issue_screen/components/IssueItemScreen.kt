@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight.Companion.Bold
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,7 +38,7 @@ fun IssueItemScreen() {
             }
 
     ) {
-        DefaultImageModifier(img = R.drawable.ic_issues)
+        DefaultImageModifier(painterResource(R.drawable.ic_issues))
 
         Column(
             Modifier.padding(8.dp)

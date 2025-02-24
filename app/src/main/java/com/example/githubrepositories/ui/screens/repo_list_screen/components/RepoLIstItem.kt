@@ -15,10 +15,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.example.githubrepositories.R
 import com.example.githubrepositories.ui.pieces.default_image_modifier.DefaultImageModifier
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
@@ -42,7 +45,12 @@ fun RepoListItem(
             onRepoItem(gitHubRepoUIModel.id.toString())
         }
     ) {
-        DefaultImageModifier(img = gitHubRepoUIModel.avatar.toInt())
+        DefaultImageModifier(img = rememberAsyncImagePainter(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(gitHubRepoUIModel.avatar)
+                .crossfade(1000)
+                .build()
+        ))
 
         Column(
             modifier = Modifier

@@ -26,29 +26,27 @@ import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
 fun DetailsScreen(
-    i: String,
+    id: Int,
     onDetails: () -> Unit = {}
 ) {
-    val id = i.toInt()
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
         item {
-
             Image(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
                     .height(300.dp),
-                painter = painterResource(id = fakeGitHubRepoListUIModel[id].avatar.toInt()),
+                painter = painterResource(id = fakeGitHubRepoListUIModel[1].avatar.toInt()),
                 contentDescription = null
             )
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
-                text = fakeGitHubRepoListUIModel[id].name,
+                text = fakeGitHubRepoListUIModel[1].name,
                 style = MaterialTheme.typography.titleLarge,
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -61,11 +59,11 @@ fun DetailsScreen(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 TextAndIcon(
-                    fakeGitHubRepoListUIModel[id].stars.toString(),
+                    fakeGitHubRepoListUIModel[1].stars.toString(),
                     R.drawable.star
                 )
                 TextAndIcon(
-                    fakeGitHubRepoListUIModel[id].owner,
+                    fakeGitHubRepoListUIModel[1].owner,
                     R.drawable.blue_circle
                 )
                 TextAndIcon(
@@ -77,7 +75,7 @@ fun DetailsScreen(
 
             Text(
                 modifier = Modifier.padding(horizontal = 16.dp),
-                text = fakeGitHubRepoListUIModel[id].description,
+                text = fakeGitHubRepoListUIModel[1].description,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurface
             )
@@ -95,6 +93,6 @@ fun DetailsScreen(
 @Composable
 private fun Prev() {
     GitHubRepositoriesTheme {
-        DetailsScreen(i = 0.toString())
+        DetailsScreen(id = 0)
     }
 }

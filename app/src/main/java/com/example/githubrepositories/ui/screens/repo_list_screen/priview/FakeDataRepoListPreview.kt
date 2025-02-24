@@ -42,14 +42,6 @@ val fakeGitHubRepoListUIModel = listOf(
     fakeGitHubRepoUIModel1,
     fakeGitHubRepoUIModel2,
     fakeGitHubRepoUIModel3,
-    fakeGitHubRepoUIModel1.copy(id = 4),
-    fakeGitHubRepoUIModel2.copy(id = 5),
-    fakeGitHubRepoUIModel3.copy(id = 6),
-    fakeGitHubRepoUIModel1.copy(id = 7),
-    fakeGitHubRepoUIModel2.copy(id = 8),
-    fakeGitHubRepoUIModel3.copy(id = 9),
-    fakeGitHubRepoUIModel1.copy(id = 10),
-    fakeGitHubRepoUIModel2.copy(id = 11),
-    fakeGitHubRepoUIModel3.copy(id = 12),
+
 
 )
