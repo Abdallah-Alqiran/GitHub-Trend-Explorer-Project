@@ -29,5 +29,5 @@ val fakeGitHubRepoListUIModel = listOf(
 
 val fakeGitHubRepoListUIState = RepoListScreenUiState (
     gitHubRepoUIModel = fakeGitHubRepoListUIModel,
-    isLoading = true
+    isError = true
 )
