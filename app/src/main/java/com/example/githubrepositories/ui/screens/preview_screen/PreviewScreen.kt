@@ -1,6 +1,7 @@
 package com.example.githubrepositories.ui.screens.preview_screen
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -77,13 +78,15 @@ fun TopAppBar(text: String, showArrow: Boolean, navController: NavHostController
         },
         navigationIcon = {
             if (showArrow) {
-                IconButton(onClick = {
-                    navController.popBackStack()
-                }) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_back_arrow),
-                        contentDescription = null
-                    )
+                Box {
+                    IconButton(onClick = {
+                        navController.popBackStack()
+                    }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_back_arrow),
+                            contentDescription = null
+                        )
+                    }
                 }
             }
         },

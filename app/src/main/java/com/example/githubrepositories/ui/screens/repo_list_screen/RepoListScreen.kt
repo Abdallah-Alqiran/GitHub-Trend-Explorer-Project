@@ -12,15 +12,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.example.githubrepositories.data.datasources.local.GithubReposLocalDataSource
+import com.example.githubrepositories.ui.common_component.animate_shimmer.AnimateShimmerScreen
+import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.components.RepoListItem
-import com.example.githubrepositories.ui.screens.repo_list_screen.priview.fakeGitHubRepoListUIModel
+import com.example.githubrepositories.ui.screens.repo_list_screen.priview.fakeGitHubRepoListUIState
 import com.example.githubrepositories.ui.screens.repo_list_screen.viewmodel.RepoListViewModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
 fun RepoListScreen(
-    modifier: Modifier = Modifier,
-    onRepoItem: (id: String) -> Unit = {},
+    onRepoItemClicked: (id: String) -> Unit = {},
 ) {
     // creating an instance of the view Model
     val repoListViewModel: RepoListViewModel = hiltViewModel()
@@ -29,15 +31,41 @@ fun RepoListScreen(
         repoListViewModel.requestGithubRepoList()
     }
 
-    val repoList by repoListViewModel.repoListStateFlow.collectAsStateWithLifecycle()
+    val repoListScreen by repoListViewModel.repoListStateFlow.collectAsStateWithLifecycle()
 
-    LazyColumn(
-        modifier = modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-    ) {
-        items(repoList) {
-            RepoListItem(onRepoItem = onRepoItem, gitHubRepoUIModel = it)
+    RepoListContent(
+        repoListScreen,
+        onRefreshButtonClicked = { repoListViewModel.requestGithubRepoList() },
+        onRepoItemClicked
+    )
+}
+
+@Composable
+fun RepoListContent(
+    repoListScreen: RepoListScreenUiState,
+    onRefreshButtonClicked:() -> Unit = {},
+    onRepoItemClicked: (id: String) -> Unit
+) {
+    when {
+        repoListScreen.isLoading -> {
+            AnimateShimmerScreen()
+        }
+        repoListScreen.isError -> {
+            FailedLoadingScreen(
+                errorMessage = repoListScreen.customErrorExceptionUiModel.toString(),
+                onFailed = onRefreshButtonClicked
+            )
+        }
+        else -> {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+            ) {
+                items(repoListScreen.gitHubRepoUIModel) {
+                    RepoListItem(onRepoItem = onRepoItemClicked, gitHubRepoUIModel = it)
+                }
+            }
         }
     }
 }
@@ -49,6 +77,10 @@ fun RepoListScreen(
 @Composable
 fun GreetingPreview() {
     GitHubRepositoriesTheme {
-        RepoListScreen()
+        RepoListContent(
+            fakeGitHubRepoListUIState,
+            onRefreshButtonClicked = {},
+            onRepoItemClicked = {}
+        )
     }
 }

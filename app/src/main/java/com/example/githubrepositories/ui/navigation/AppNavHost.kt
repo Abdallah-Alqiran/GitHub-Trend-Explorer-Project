@@ -10,8 +10,6 @@ import androidx.navigation.navArgument
 import com.example.githubrepositories.ui.screens.details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.issue_screen.IssueScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
-import com.example.githubrepositories.ui.common_component.animate_shimmer.SplashScreen
-import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 
 @Composable
 fun AppNavHost(
@@ -23,13 +21,13 @@ fun AppNavHost(
     // Host
     NavHost(
         navController = navController,
-        startDestination = Screens.Splash.route,
+        startDestination = Screens.RepoList.route,
         modifier = modifier
     ) {
         composable(route = Screens.RepoList.route) {
             onPageChange("Github Repositories", false)
             RepoListScreen(
-                onRepoItem = {
+                onRepoItemClicked = {
                     navController.navigate(Screens.RepoDetails.passId(it))
                 }
             )
@@ -57,37 +55,6 @@ fun AppNavHost(
         composable(route = Screens.RepoIssues.route) {
             onPageChange("Issues", true)
             IssueScreen()
-        }
-
-        composable(route = Screens.Splash.route) {
-            onPageChange("Github Repositories", false)
-            SplashScreen(
-                onSplash = {
-                    navController.navigate(Screens.FailedLoading.route) {
-                        popUpTo(Screens.Splash.route) {
-                            inclusive = true
-                        }
-                    }
-                }
-            )
-        }
-
-
-        composable(route = Screens.FailedLoading.route) {
-            onPageChange("Github Repositories", false)
-            FailedLoadingScreen(
-                onFailed = {
-                    navController.navigate(Screens.RepoList.route) {
-                        popUpTo(Screens.FailedLoading.route) {
-                            inclusive = true
-                        }
-                    }
-                }
-            )
-        }
-
-        composable(route = Screens.GoBack.route) {
-
         }
     }
 }

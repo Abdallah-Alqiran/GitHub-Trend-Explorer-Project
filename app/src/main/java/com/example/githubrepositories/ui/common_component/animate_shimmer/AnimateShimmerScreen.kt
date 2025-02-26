@@ -3,11 +3,10 @@ package com.example.githubrepositories.ui.common_component.animate_shimmer
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Modifier
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(onSplash: () -> Unit = {}, modifier: Modifier = Modifier) {
+fun AnimateShimmerScreen(onSplash: () -> Unit = {}) {
     LazyColumn {
         items(20) {
             SplashItemScreen()

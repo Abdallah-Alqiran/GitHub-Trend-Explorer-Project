@@ -3,6 +3,7 @@ package com.example.githubrepositories.di
 import android.content.Context
 import androidx.room.Room
 import com.example.githubrepositories.data.Constants.Companion.DATABASE_NAME
+import com.example.githubrepositories.data.datasources.local.datastore.DataStorePreference
 import com.example.githubrepositories.data.datasources.local.room.database.GithubReposDatabase
 import com.example.githubrepositories.data.datasources.local.room.dao.GithubReposDao
 import dagger.Module
@@ -40,5 +41,13 @@ object DatabaseModule {
         githubReposDatabase: GithubReposDatabase
     ): GithubReposDao {
         return githubReposDatabase.githubReposDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideStateDataStorePreference (
+        @ApplicationContext context: Context
+    ): DataStorePreference {
+        return DataStorePreference(context)
     }
 }

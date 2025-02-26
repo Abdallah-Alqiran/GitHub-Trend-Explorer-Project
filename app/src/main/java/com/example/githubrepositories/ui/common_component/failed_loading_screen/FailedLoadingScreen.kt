@@ -19,11 +19,12 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.githubrepositories.R
+import com.example.githubrepositories.ui.model.CustomExceptionUiModel
 import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
-fun FailedLoadingScreen(onFailed: () -> Unit = {}) {
+fun FailedLoadingScreen(onFailed: () -> Unit = {}, errorMessage: String = "") {
     // Load animation from the raw folder
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.error_animation))
 
@@ -54,7 +55,8 @@ fun FailedLoadingScreen(onFailed: () -> Unit = {}) {
             style = MaterialTheme.typography.titleLarge
         )
         Text(
-            text = "Network Error",
+            modifier = Modifier.padding(horizontal = 16.dp),
+            text = errorMessage,
             style = MaterialTheme.typography.titleMedium,
             color = Color.Gray
         )

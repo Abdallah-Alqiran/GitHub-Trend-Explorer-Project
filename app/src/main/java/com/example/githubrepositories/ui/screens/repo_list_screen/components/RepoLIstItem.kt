@@ -115,7 +115,7 @@ fun RepoListItem(
 fun GreetingPreview() {
     GitHubRepositoriesTheme {
         RepoListScreen(
-            onRepoItem = {}
+            onRepoItemClicked = {}
         )
     }
 }

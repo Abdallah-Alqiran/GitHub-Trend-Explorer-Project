@@ -14,8 +14,7 @@ data class GithubRepoEntity(
     val description: String,
     val forks: Int,
     val language: String,
-    val starts: Int,
+    val stars: Int,
     val url: String,
     val owner: String
 )
-

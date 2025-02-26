@@ -3,6 +3,7 @@ package com.example.githubrepositories.data.datasources.remote
 import android.util.Log
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
+import com.example.githubrepositories.data.mapper.toCustomExceptionDomainModel
 import com.example.githubrepositories.di.NetworkModule
 import javax.inject.Inject
 
@@ -18,7 +19,7 @@ class GithubReposRemoteDataSource @Inject constructor(
             githubAPI.fetchGithubRepoData().body() as GithubReposDataModel
         } catch (e: Exception) {
             Log.d("githubException", "Error Loading the data")
-            throw e
+            throw e.toCustomExceptionDomainModel()
         }
     }
 }

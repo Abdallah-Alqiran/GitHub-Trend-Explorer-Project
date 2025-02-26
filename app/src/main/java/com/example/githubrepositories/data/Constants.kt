@@ -10,5 +10,9 @@ class Constants {
         // room
         const val GITHUB_REPOS_TABLE = "github_repos_table"
         const val DATABASE_NAME = "github_repos_database"
+
+        // data store
+        const val PREFERENCES_NAME = "github_preferences"
+        const val PREFERENCES_IS_FIRST_TIME = "is_first_time"
     }
 }
