@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.githubrepositories.data.datasources.local.GithubReposLocalDataSource
 import com.example.githubrepositories.ui.common_component.animate_shimmer.AnimateShimmerScreen
 import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.components.RepoListItem
