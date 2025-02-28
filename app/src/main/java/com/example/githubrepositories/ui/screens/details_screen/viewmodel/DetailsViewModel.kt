@@ -1,15 +1,11 @@
 package com.example.githubrepositories.ui.screens.details_screen.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.githubrepositories.domain.model.CustomExceptionDomainModel
 import com.example.githubrepositories.domain.usecase.FetchGithubRepoDetailsUseCase
-import com.example.githubrepositories.domain.usecase.FetchGithubRepoListUseCase
 import com.example.githubrepositories.ui.mapper.toCustomExceptionUiModel
 import com.example.githubrepositories.ui.mapper.toRepositoryDetailsUiModel
-import com.example.githubrepositories.ui.model.CustomExceptionUiModel
 import com.example.githubrepositories.ui.screens.details_screen.RepoDetailsUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

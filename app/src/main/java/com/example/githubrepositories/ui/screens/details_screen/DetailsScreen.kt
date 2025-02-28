@@ -57,6 +57,7 @@ fun DetailsScreen(
                 onFailed = {
                     repoDetailsViewModel.requestGithubRepoDetails(owner, name)
                 },
+                errorMessage = "${(repoDetailsUiState as RepoDetailsUiState.Error).customErrorExceptionUiModel} Error"
             )
         }
 
