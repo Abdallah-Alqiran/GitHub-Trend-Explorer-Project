@@ -14,5 +14,9 @@ class Constants {
         // data store
         const val PREFERENCES_NAME = "github_preferences"
         const val PREFERENCES_IS_FIRST_TIME = "is_first_time"
+
+        // keys for details
+        const val OWNER_KEY = "owner"
+        const val REPO_NAME_KEY =  "repo"
     }
 }

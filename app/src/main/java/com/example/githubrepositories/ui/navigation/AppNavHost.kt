@@ -1,12 +1,11 @@
 package com.example.githubrepositories.ui.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
 import com.example.githubrepositories.ui.screens.details_screen.DetailsScreen
 import com.example.githubrepositories.ui.screens.issue_screen.IssueScreen
 import com.example.githubrepositories.ui.screens.repo_list_screen.RepoListScreen
@@ -24,31 +23,36 @@ fun AppNavHost(
         startDestination = Screens.RepoList.route,
         modifier = modifier
     ) {
+
         composable(route = Screens.RepoList.route) {
+
             onPageChange("Github Repositories", false)
+
             RepoListScreen(
-                onRepoItemClicked = {
-                    navController.navigate(Screens.RepoDetails.passId(it))
+                onRepoItemClicked = { owner, name ->
+                    navController.navigate(Screens.RepoDetails.passOwnerAndName(owner, name))
                 }
             )
         }
 
         composable(
             route = Screens.RepoDetails.route,
-            arguments = listOf(navArgument(USER_ID) {
-                type = NavType.StringType
-            })
-        ) {navBackStackEntry ->
+        ) { navBackStackEntry ->
             onPageChange("Details", true)
 
-            val id = navBackStackEntry.arguments?.getString(USER_ID)
-            id?.let {
+            val owner = navBackStackEntry.arguments?.getString("owner")
+            val name = navBackStackEntry.arguments?.getString("name")
+
+            if (name != null && owner != null) {
                 DetailsScreen(
-                    it.toInt(),
+                    owner = owner,
+                    name = name,
                     onDetails = {
                         navController.navigate(Screens.RepoIssues.route)
                     }
                 )
+            } else {
+                Log.d("userName and Owner", "$owner $name")
             }
         }
 

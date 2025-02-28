@@ -1,5 +1,7 @@
 package com.example.githubrepositories.data.datasources.remote.retrofit.model
 
+import com.google.gson.annotations.SerializedName
+
 data class Item(
     val allow_forking: Boolean,
     val archive_url: String,
@@ -14,7 +16,7 @@ data class Item(
     val compare_url: String,
     val contents_url: String,
     val contributors_url: String,
-    val created_at: String,
+    @SerializedName("created_at") val createdAt: String,
     val default_branch: String,
     val deployments_url: String,
     val description: String,
@@ -65,7 +67,7 @@ data class Item(
     val score: Int,
     val size: Int,
     val ssh_url: String,
-    val stargazers_count: Int,
+    @SerializedName("stargazers_count") val stargazersCount: Int,
     val stargazers_url: String,
     val statuses_url: String,
     val subscribers_url: String,
