@@ -21,7 +21,7 @@ import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 @Composable
 fun RepoListScreen(
-    onRepoItemClicked: (id: String) -> Unit = {},
+    onRepoItemClicked: (owner: String, name: String) -> Unit = { _, _ -> },
 ) {
     // creating an instance of the view Model
     val repoListViewModel: RepoListViewModel = hiltViewModel()
@@ -35,26 +35,28 @@ fun RepoListScreen(
     RepoListContent(
         repoListScreen,
         onRefreshButtonClicked = { repoListViewModel.requestGithubRepoList() },
-        onRepoItemClicked
+        onRepoItemClicked = onRepoItemClicked
     )
 }
 
 @Composable
 fun RepoListContent(
     repoListScreen: RepoListScreenUiState,
-    onRefreshButtonClicked:() -> Unit = {},
-    onRepoItemClicked: (id: String) -> Unit
+    onRefreshButtonClicked: () -> Unit = {},
+    onRepoItemClicked: (owner: String, name: String) -> Unit = { _, _ -> },
 ) {
     when {
         repoListScreen.isLoading -> {
             AnimateShimmerScreen()
         }
+
         repoListScreen.isError -> {
             FailedLoadingScreen(
                 errorMessage = repoListScreen.customErrorExceptionUiModel.toString(),
                 onFailed = onRefreshButtonClicked
             )
         }
+
         else -> {
             LazyColumn(
                 modifier = Modifier
@@ -79,7 +81,7 @@ fun GreetingPreview() {
         RepoListContent(
             fakeGitHubRepoListUIState,
             onRefreshButtonClicked = {},
-            onRepoItemClicked = {}
+            onRepoItemClicked = { _, _ -> }
         )
     }
 }

@@ -1,8 +1,7 @@
 package com.example.githubrepositories.domain.usecase
 
-import com.example.githubrepositories.domain.model.GithubRepoDomainModel
+import com.example.githubrepositories.domain.model.GithubRepoListDomainModel
 import com.example.githubrepositories.domain.repository.GithubReposRepository
-import com.example.githubrepositories.ui.screens.repo_list_screen.model.GitHubRepoUIModel
 import javax.inject.Inject
 
 // inject constructor
@@ -10,8 +9,8 @@ import javax.inject.Inject
 class FetchGithubRepoListUseCase @Inject constructor(
     private val githubReposRepository: GithubReposRepository
 ) {
-    suspend operator fun invoke(): List<GithubRepoDomainModel> {
-        return githubReposRepository.fetchGithubRepos()
+    suspend operator fun invoke(): List<GithubRepoListDomainModel> {
+        return githubReposRepository.fetchGithubReposList()
     }
 //    // the same but without using operator overloading (invoke)
 //    fun fetchGithubRepoList(): List<GithubRepoDomainModel> {

@@ -11,7 +11,7 @@ fun Item.toGithubRepoEntity(): GithubRepoEntity {
         description = description,
         forks = forks,
         language = language?: "",
-        stars = stargazers_count,
+        stars = stargazersCount,
         url = url,
         owner = owner.login
     )
