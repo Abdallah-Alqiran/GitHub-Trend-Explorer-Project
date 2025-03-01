@@ -8,7 +8,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun AnimateShimmerScreen(onSplash: () -> Unit = {}) {
     LazyColumn {
-        items(20) {
+        items(10) {
             SplashItemScreen()
         }
     }

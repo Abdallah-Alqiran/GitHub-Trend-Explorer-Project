@@ -19,7 +19,6 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.githubrepositories.R
-import com.example.githubrepositories.ui.model.CustomExceptionUiModel
 import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
@@ -41,6 +40,7 @@ fun FailedLoadingScreen(onFailed: () -> Unit = {}, errorMessage: String = "") {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        @Suppress("DEPRECATION")
         LottieAnimation(
             composition = composition,
             progress = progress,
@@ -69,7 +69,6 @@ fun FailedLoadingScreen(onFailed: () -> Unit = {}, errorMessage: String = "") {
             onClick = onFailed
         )
     }
-
 }
 
 @Preview(showBackground = true)

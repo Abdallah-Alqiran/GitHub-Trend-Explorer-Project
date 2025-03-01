@@ -1,6 +1,5 @@
 package com.example.githubrepositories.ui.screens.issue_screen
 
-import com.example.githubrepositories.domain.model.GithubRepoIssuesDomainModel
 import com.example.githubrepositories.ui.model.CustomExceptionUiModel
 import com.example.githubrepositories.ui.screens.issue_screen.model.GithubRepoIssuesUiModel
 

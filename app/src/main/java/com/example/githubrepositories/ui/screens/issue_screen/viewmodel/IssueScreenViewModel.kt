@@ -29,8 +29,9 @@ class IssueScreenViewModel @Inject constructor(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                _repoIssuesStateFlow.value = RepoIssuesUiState.Loading(isLoading = false)
                 val data = fetchGithubRepoIssuesUseCase(owner, name)
+
+                _repoIssuesStateFlow.value = RepoIssuesUiState.Loading(isLoading = false)
                 _repoIssuesStateFlow.value = RepoIssuesUiState.RepoIssueUiModelData(
                     repositoryIssues = data.map { it.toRepositoryIssuesUiModel() }
                 )

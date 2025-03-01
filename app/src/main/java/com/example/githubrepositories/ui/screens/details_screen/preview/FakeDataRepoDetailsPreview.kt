@@ -2,7 +2,6 @@ package com.example.githubrepositories.ui.screens.details_screen.preview
 
 import com.example.githubrepositories.R
 import com.example.githubrepositories.ui.screens.details_screen.model.GithubRepoDetailsUiModel
-import com.example.githubrepositories.ui.screens.issue_screen.model.GithubRepoIssuesUiModel
 
 val fakeGitHubDetailsUIModel = GithubRepoDetailsUiModel(
     id  = 1,

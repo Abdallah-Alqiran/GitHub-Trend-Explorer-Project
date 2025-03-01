@@ -16,6 +16,7 @@ import com.example.githubrepositories.ui.common_component.animate_shimmer.Animat
 import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.issue_screen.components.IssueItemScreen
 import com.example.githubrepositories.ui.screens.issue_screen.model.GithubRepoIssuesUiModel
+import com.example.githubrepositories.ui.screens.issue_screen.preview.fakeIssuesDataPreview
 import com.example.githubrepositories.ui.screens.issue_screen.viewmodel.IssueScreenViewModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
@@ -82,6 +83,6 @@ fun IssueContent(
 @Composable
 private fun Prev() {
     GitHubRepositoriesTheme {
-
+        IssueContent(repoIssueUiModel = fakeIssuesDataPreview)
     }
 }

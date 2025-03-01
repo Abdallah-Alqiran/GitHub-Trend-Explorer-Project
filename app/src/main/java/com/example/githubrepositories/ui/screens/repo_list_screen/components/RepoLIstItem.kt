@@ -1,6 +1,5 @@
 package com.example.githubrepositories.ui.screens.repo_list_screen.components
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

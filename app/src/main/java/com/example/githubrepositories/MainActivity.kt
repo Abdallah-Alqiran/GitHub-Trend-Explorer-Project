@@ -9,7 +9,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.githubrepositories.ui.screens.preview_screen.PreviewScreen
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.MutableStateFlow
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
