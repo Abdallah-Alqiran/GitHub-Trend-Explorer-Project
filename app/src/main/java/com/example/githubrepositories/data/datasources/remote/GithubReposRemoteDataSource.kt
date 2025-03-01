@@ -1,12 +1,12 @@
 package com.example.githubrepositories.data.datasources.remote
 
-import android.util.Log
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoDetailsApi
+import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoIssuesApi
 import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.Issues
 import com.example.githubrepositories.data.datasources.remote.retrofit.model.Item
 import com.example.githubrepositories.data.mapper.toCustomExceptionDomainModel
-import com.example.githubrepositories.domain.model.CustomExceptionDomainModel
 import javax.inject.Inject
 
 // this remote repo will deal with retrofit
@@ -14,7 +14,8 @@ import javax.inject.Inject
 // we will take instance from retrofit
 class GithubReposRemoteDataSource @Inject constructor(
     private val githubAPI: GithubAPI,
-    private val repoDetailsApi: RepoDetailsApi
+    private val repoDetailsApi: RepoDetailsApi,
+    private val repoIssuesApi: RepoIssuesApi
 ) {
     // this function will return the data if there is no errors
     suspend fun fetchGithubRepos(): GithubReposDataModel {
@@ -33,4 +34,14 @@ class GithubReposRemoteDataSource @Inject constructor(
             throw e.toCustomExceptionDomainModel()
         }
     }
+
+    suspend fun fetchGithubRepositoryIssues(owner: String, name: String): Issues {
+        return try {
+            repoIssuesApi.fetchIssueDetails(owner, name).body() as Issues
+        } catch(e: Exception) {
+            throw  e.toCustomExceptionDomainModel()
+        }
+    }
+
+
 }

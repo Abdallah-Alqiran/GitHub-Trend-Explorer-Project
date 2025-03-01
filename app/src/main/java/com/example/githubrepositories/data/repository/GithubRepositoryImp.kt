@@ -1,11 +1,12 @@
 package com.example.githubrepositories.data.repository
 
-import android.util.Log
 import com.example.githubrepositories.data.datasources.local.GithubReposLocalDataSource
 import com.example.githubrepositories.data.datasources.remote.GithubReposRemoteDataSource
 import com.example.githubrepositories.data.mapper.toGithubRepoDetailsDomainModel
 import com.example.githubrepositories.data.mapper.toGithubRepoEntity
+import com.example.githubrepositories.data.mapper.toGithubRepoIssuesDomainModel
 import com.example.githubrepositories.domain.model.GithubRepoDetailsDomainModel
+import com.example.githubrepositories.domain.model.GithubRepoIssuesDomainModel
 import com.example.githubrepositories.domain.model.GithubRepoListDomainModel
 import com.example.githubrepositories.domain.repository.GithubReposRepository
 import javax.inject.Inject
@@ -48,4 +49,10 @@ class GithubRepositoryImp @Inject constructor(
         return githubReposRemoteDataSource.fetchGithubRepositoryDetails(owner, name).toGithubRepoDetailsDomainModel()
     }
 
+    override suspend fun fetchGithubReposIssues(
+        owner: String,
+        name: String
+    ): List<GithubRepoIssuesDomainModel> {
+        return githubReposRemoteDataSource.fetchGithubRepositoryIssues(owner, name).toGithubRepoIssuesDomainModel()
+    }
 }

@@ -1,6 +1,5 @@
 package com.example.githubrepositories.ui.screens.details_screen
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,11 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,6 +30,7 @@ import com.example.githubrepositories.ui.common_component.failed_loading_screen.
 import com.example.githubrepositories.ui.pieces.default_button.DefaultButton
 import com.example.githubrepositories.ui.screens.details_screen.components.TextAndIcon
 import com.example.githubrepositories.ui.screens.details_screen.model.GithubRepoDetailsUiModel
+import com.example.githubrepositories.ui.screens.details_screen.preview.fakeGitHubDetailsUIModel
 import com.example.githubrepositories.ui.screens.details_screen.viewmodel.DetailsViewModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
@@ -57,6 +55,7 @@ fun DetailsScreen(
                 onFailed = {
                     repoDetailsViewModel.requestGithubRepoDetails(owner, name)
                 },
+                errorMessage = "${(repoDetailsUiState as RepoDetailsUiState.Error).customErrorExceptionUiModel} Error"
             )
         }
 
@@ -148,6 +147,6 @@ fun RepoDetailsContent(
 @Composable
 private fun Prev() {
     GitHubRepositoriesTheme {
-        DetailsScreen(owner = "Abdalla Alqiran", name = "project")
+        RepoDetailsContent(fakeGitHubDetailsUIModel)
     }
 }

@@ -3,6 +3,7 @@ package com.example.githubrepositories.di
 import com.example.githubrepositories.data.Constants.Companion.BASE_URL
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoDetailsApi
+import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoIssuesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,5 +42,10 @@ object NetworkModule {
         return retrofit.create(RepoDetailsApi::class.java)
     }
 
+    @Provides
+    @Singleton
+    fun provideIssuesDetailsApi(retrofit: Retrofit): RepoIssuesApi{
+        return retrofit.create(RepoIssuesApi::class.java)
+    }
 
 }

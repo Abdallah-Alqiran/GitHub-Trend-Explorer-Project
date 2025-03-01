@@ -40,15 +40,15 @@ fun AppNavHost(
         ) { navBackStackEntry ->
             onPageChange("Details", true)
 
-            val owner = navBackStackEntry.arguments?.getString("owner")
-            val name = navBackStackEntry.arguments?.getString("name")
+            val owner = navBackStackEntry.arguments?.getString(OWNER)
+            val name = navBackStackEntry.arguments?.getString(NAME)
 
             if (name != null && owner != null) {
                 DetailsScreen(
                     owner = owner,
                     name = name,
                     onDetails = {
-                        navController.navigate(Screens.RepoIssues.route)
+                        navController.navigate(Screens.RepoIssues.passOwnerAndName(owner,name))
                     }
                 )
             } else {
@@ -56,9 +56,14 @@ fun AppNavHost(
             }
         }
 
-        composable(route = Screens.RepoIssues.route) {
+        composable(route = Screens.RepoIssues.route) { navBackStackEntry ->
             onPageChange("Issues", true)
-            IssueScreen()
+
+            val owner = navBackStackEntry.arguments?.getString(OWNER)
+            val name = navBackStackEntry.arguments?.getString(NAME)
+            if (name != null && owner != null) {
+                IssueScreen(owner, name)
+            }
         }
     }
 }

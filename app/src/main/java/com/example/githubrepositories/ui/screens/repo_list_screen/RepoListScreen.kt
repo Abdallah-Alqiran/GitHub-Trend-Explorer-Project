@@ -52,7 +52,7 @@ fun RepoListContent(
 
         repoListScreen.isError -> {
             FailedLoadingScreen(
-                errorMessage = repoListScreen.customErrorExceptionUiModel.toString(),
+                errorMessage = "${repoListScreen.customErrorExceptionUiModel} Error",
                 onFailed = onRefreshButtonClicked
             )
         }
