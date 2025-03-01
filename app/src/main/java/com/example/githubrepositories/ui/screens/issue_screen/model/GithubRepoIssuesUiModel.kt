@@ -1,6 +1,6 @@
-package com.example.githubrepositories.domain.model
+package com.example.githubrepositories.ui.screens.issue_screen.model
 
-data class GithubRepoIssuesDomainModel(
+data class GithubRepoIssuesUiModel(
     val id: Long,
     val title: String,
     val author: String,

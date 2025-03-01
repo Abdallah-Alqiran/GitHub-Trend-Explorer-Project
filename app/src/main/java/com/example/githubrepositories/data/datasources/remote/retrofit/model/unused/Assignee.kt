@@ -1,6 +1,6 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model
+package com.example.githubrepositories.data.datasources.remote.retrofit.model.unused
 
-data class User(
+data class Assignee(
     val avatar_url: String,
     val events_url: String,
     val followers_url: String,

@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.githubrepositories.domain.model.GithubRepoIssuesDomainModel
 import com.example.githubrepositories.ui.common_component.animate_shimmer.AnimateShimmerScreen
 import com.example.githubrepositories.ui.common_component.failed_loading_screen.FailedLoadingScreen
 import com.example.githubrepositories.ui.screens.issue_screen.components.IssueItemScreen
+import com.example.githubrepositories.ui.screens.issue_screen.model.GithubRepoIssuesUiModel
 import com.example.githubrepositories.ui.screens.issue_screen.viewmodel.IssueScreenViewModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
@@ -51,8 +51,9 @@ fun IssueScreen(
                 AnimateShimmerScreen()
             }
         }
+
         is RepoIssuesUiState.RepoIssueUiModelData -> {
-            IssueDetailsContent(
+            IssueContent(
                 repoIssueUiModel = (repoIssueUiState as RepoIssuesUiState.RepoIssueUiModelData).repositoryIssues
             )
         }
@@ -61,16 +62,16 @@ fun IssueScreen(
 }
 
 @Composable
-fun IssueDetailsContent(
-    repoIssueUiModel :GithubRepoIssuesDomainModel
+fun IssueContent(
+    repoIssueUiModel : List<GithubRepoIssuesUiModel>
 ) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
     ) {
-        items(1) { issue ->
-            IssueItemScreen(repoIssueUiModel)
+        items(repoIssueUiModel) { issue ->
+            IssueItemScreen(issue)
         }
     }
 }

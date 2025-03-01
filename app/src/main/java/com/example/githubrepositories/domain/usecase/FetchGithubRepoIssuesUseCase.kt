@@ -9,8 +9,7 @@ class FetchGithubRepoIssuesUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(
         owner: String, name: String
-    ): GithubRepoIssuesDomainModel {
+    ): List<GithubRepoIssuesDomainModel> {
         return githubRepository.fetchGithubReposIssues(owner, name)
     }
-
 }

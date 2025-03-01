@@ -1,9 +1,9 @@
 package com.example.githubrepositories.data.mapper
 
 import com.example.githubrepositories.data.datasources.local.room.entities.GithubRepoEntity
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.Item
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_details.GithubDetailsDataModel
 
-fun Item.toGithubRepoEntity(): GithubRepoEntity {
+fun GithubDetailsDataModel.toGithubRepoEntity(): GithubRepoEntity {
     return GithubRepoEntity (
         id = id,
         name = name,

@@ -1,14 +1,12 @@
 package com.example.githubrepositories.data.datasources.remote
 
-import android.util.Log
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoDetailsApi
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoIssuesApi
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.IssuesItem
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.Item
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_repo.GithubReposDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_issues.Issues
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_details.GithubDetailsDataModel
 import com.example.githubrepositories.data.mapper.toCustomExceptionDomainModel
-import com.example.githubrepositories.domain.model.CustomExceptionDomainModel
 import javax.inject.Inject
 
 // this remote repo will deal with retrofit
@@ -29,19 +27,21 @@ class GithubReposRemoteDataSource @Inject constructor(
     }
 
     // this function will return the details data
-    suspend fun fetchGithubRepositoryDetails(owner: String, name: String): Item {
+    suspend fun fetchGithubRepositoryDetails(owner: String, name: String): GithubDetailsDataModel {
         return try {
-            repoDetailsApi.fetchRepoDetails(owner, name).body() as Item
+            repoDetailsApi.fetchRepoDetails(owner, name).body() as GithubDetailsDataModel
         } catch(e: Exception) {
             throw e.toCustomExceptionDomainModel()
         }
     }
 
-    suspend fun fetchGithubRepositoryIssues(owner: String, name: String): IssuesItem {
+    suspend fun fetchGithubRepositoryIssues(owner: String, name: String): Issues {
         return try {
-            repoIssuesApi.fetchIssueDetails(owner, name).body() as IssuesItem
+            repoIssuesApi.fetchIssueDetails(owner, name).body() as Issues
         } catch(e: Exception) {
-            throw  e//.toCustomExceptionDomainModel()
+            throw  e.toCustomExceptionDomainModel()
         }
     }
+
+
 }

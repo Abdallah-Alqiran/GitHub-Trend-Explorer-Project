@@ -7,9 +7,9 @@ sealed class Screens(val route: String) {
 
     data object RepoList : Screens("repo_list_screen")
 
-    data object RepoDetails : Screens("repo_details/{$OWNER}/{$NAME}") { // Changed to use /
+    data object RepoDetails : Screens("repo_details/{$OWNER}/{$NAME}") {
         fun passOwnerAndName(owner: String, name: String): String {
-            return "repo_details/$owner/$name" // Correctly formatted
+            return "repo_details/$owner/$name"
         }
     }
 

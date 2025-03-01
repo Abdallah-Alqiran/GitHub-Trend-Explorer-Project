@@ -1,5 +1,12 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model
+package com.example.githubrepositories.data.datasources.remote.retrofit.model.for_issues
 
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.ClosedBy
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.Label
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.PullRequest
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.Reactions
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.SubIssuesSummary
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.User
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.Assignee
 import com.google.gson.annotations.SerializedName
 
 data class IssuesItem(

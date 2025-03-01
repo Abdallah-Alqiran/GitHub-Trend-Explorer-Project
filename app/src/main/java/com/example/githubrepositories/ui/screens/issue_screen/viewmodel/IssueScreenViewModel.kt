@@ -32,12 +32,11 @@ class IssueScreenViewModel @Inject constructor(
                 _repoIssuesStateFlow.value = RepoIssuesUiState.Loading(isLoading = false)
                 val data = fetchGithubRepoIssuesUseCase(owner, name)
                 _repoIssuesStateFlow.value = RepoIssuesUiState.RepoIssueUiModelData(
-                    repositoryIssues = data.toRepositoryIssuesUiModel()//map { it.toRepositoryIssuesUiModel() }
+                    repositoryIssues = data.map { it.toRepositoryIssuesUiModel() }
                 )
-            } catch(e: Exception) {
+            } catch(e: CustomExceptionDomainModel) {
                 _repoIssuesStateFlow.value = RepoIssuesUiState.Loading(isLoading = false)
-//                _repoIssuesStateFlow.value = RepoIssuesUiState.Error(customErrorExceptionUiModel = e.toCustomExceptionUiModel())
-                throw e
+                _repoIssuesStateFlow.value = RepoIssuesUiState.Error(customErrorExceptionUiModel = e.toCustomExceptionUiModel())
             }
         }
     }

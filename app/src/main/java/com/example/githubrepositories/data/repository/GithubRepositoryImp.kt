@@ -1,6 +1,5 @@
 package com.example.githubrepositories.data.repository
 
-import android.util.Log
 import com.example.githubrepositories.data.datasources.local.GithubReposLocalDataSource
 import com.example.githubrepositories.data.datasources.remote.GithubReposRemoteDataSource
 import com.example.githubrepositories.data.mapper.toGithubRepoDetailsDomainModel
@@ -29,7 +28,7 @@ class GithubRepositoryImp @Inject constructor(
             val githubReposDataModel = githubReposRemoteDataSource.fetchGithubRepos()
 
             // then cache in ROOM
-            githubReposLocalDataSource.insertGithubRepoList(githubReposDataModel.items.map { it.toGithubRepoEntity() })
+            githubReposLocalDataSource.insertGithubRepoList(githubReposDataModel.githubDetailsDataModels.map { it.toGithubRepoEntity() })
 
             // then return cached data
             githubReposLocalDataSource.saveIsFirstTimeEnterApp(isFirstTime = false)
@@ -53,7 +52,7 @@ class GithubRepositoryImp @Inject constructor(
     override suspend fun fetchGithubReposIssues(
         owner: String,
         name: String
-    ): GithubRepoIssuesDomainModel {
-        return githubReposRemoteDataSource.fetchGithubRepositoryIssues(owner, name).toGithubRepoIssuesDomainModel()//map { it.toGithubRepoIssuesDomainModel() }
+    ): List<GithubRepoIssuesDomainModel> {
+        return githubReposRemoteDataSource.fetchGithubRepositoryIssues(owner, name).toGithubRepoIssuesDomainModel()
     }
 }

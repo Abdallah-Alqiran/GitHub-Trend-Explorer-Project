@@ -1,4 +1,4 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model
+package com.example.githubrepositories.data.datasources.remote.retrofit.model.unused
 
 data class Label(
     val color: String,

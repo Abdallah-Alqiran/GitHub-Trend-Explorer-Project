@@ -21,13 +21,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.githubrepositories.R
-import com.example.githubrepositories.domain.model.GithubRepoIssuesDomainModel
 import com.example.githubrepositories.ui.pieces.default_image_modifier.DefaultImageModifier
+import com.example.githubrepositories.ui.screens.issue_screen.model.GithubRepoIssuesUiModel
 import com.example.githubrepositories.ui.theme.GitHubRepositoriesTheme
 
 
 @Composable
-fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
+fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesUiModel) {
     val context = LocalContext.current
     Row(
         modifier = Modifier
@@ -38,7 +38,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
                 shape = MaterialTheme.shapes.medium
             )
             .clickable {
-                Toast.makeText(context, repoIssueUiModel.repositoryUrl.toString(), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, repoIssueUiModel.repositoryUrl, Toast.LENGTH_LONG).show()
             }
 
     ) {
@@ -50,7 +50,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
 
             Row {
                 Text(
-                    text = repoIssueUiModel.title?: "",
+                    text = repoIssueUiModel.title,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
@@ -58,7 +58,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
                     color = MaterialTheme.colorScheme.onErrorContainer
                 )
                 Text(
-                    text = repoIssueUiModel.locked.toString(),
+                    text = repoIssueUiModel.state,
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onErrorContainer
                 )
@@ -67,7 +67,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = repoIssueUiModel.body?: "",
+                text = repoIssueUiModel.author,
                 maxLines = 4,
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.bodyMedium,
@@ -77,7 +77,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
 
             Spacer(Modifier.height(2.dp))
 
-            Row() {
+            Row {
 
                 Text(
                     text = "Created At: ",
@@ -85,7 +85,7 @@ fun IssueItemScreen(repoIssueUiModel : GithubRepoIssuesDomainModel) {
                     fontWeight = Bold
                 )
                 Text(
-                    text = repoIssueUiModel.createdAt,
+                    text = repoIssueUiModel.date,
                     style = MaterialTheme.typography.labelMedium
                 )
             }

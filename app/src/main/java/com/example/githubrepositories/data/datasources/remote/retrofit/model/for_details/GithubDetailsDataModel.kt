@@ -1,8 +1,10 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model
+package com.example.githubrepositories.data.datasources.remote.retrofit.model.for_details
 
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.License
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.unused.Owner
 import com.google.gson.annotations.SerializedName
 
-data class Item(
+data class GithubDetailsDataModel(
     val allow_forking: Boolean,
     val archive_url: String,
     val archived: Boolean,

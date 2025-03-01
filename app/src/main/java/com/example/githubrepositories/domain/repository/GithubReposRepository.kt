@@ -9,6 +9,5 @@ import com.example.githubrepositories.domain.model.GithubRepoListDomainModel
 interface GithubReposRepository {
     suspend fun fetchGithubReposList(): List<GithubRepoListDomainModel>
     suspend fun fetchGithubReposDetails(owner: String, name: String): GithubRepoDetailsDomainModel
-    suspend fun fetchGithubReposIssues(owner: String, name: String): GithubRepoIssuesDomainModel
-
+    suspend fun fetchGithubReposIssues(owner: String, name: String): List<GithubRepoIssuesDomainModel>
 }
