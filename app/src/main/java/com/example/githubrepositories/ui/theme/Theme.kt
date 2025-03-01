@@ -8,9 +8,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Color(0xFF90CAF9),
+    secondary = Color(0xFFB39DDB),
+    tertiary = Color(0xFF80CBC4),
+    background = Color(0xFF121212),
+    surface = Color(0xFF1E1E1E),
+    onSurface = Color(0xFFE0E0E0),
+    onPrimary = Color.Black,
+    onSecondary = Color.Black,
+    onTertiary = Color.Black,
+    onBackground = Color(0xFFE0E0E0),
+    primaryContainer = Color(0xFF263238),
+    onPrimaryContainer = Color(0xFFB2EBF2),
+    errorContainer = Color(0xFFCF6679),
+    onErrorContainer = Color(0xFF1E1E1E)
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -36,18 +47,11 @@ fun GitHubRepositoriesTheme(
     content: @Composable () -> Unit
 ) {
 
-//    val colorScheme = when {
-//        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-//            val context = LocalContext.current
-//            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-//        }
-//
-//        darkTheme -> DarkColorScheme
-//        else -> LightColorScheme
-//    }
+    val colorScheme = when {
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
 
-
-    val colorScheme = LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,

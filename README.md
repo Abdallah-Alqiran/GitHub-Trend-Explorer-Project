@@ -1,7 +1,7 @@
 # 🧐**GitHub Trend Explorer project**  
 
 ### **Project Description**  
-This Android application is being developed as part of the DEPI initiative. The goal is to create a platform to display popular GitHub repositories with essential details like stars, forks, and topics. The project aims to follow best practices for API integration and dynamic content rendering to provide an optimized user experience.
+This Android application was developed as part of the DEPI initiative. The project successfully created a platform to display popular GitHub repositories, showcasing essential details such as stars, forks, and topics. Throughout development, best practices for API integration and dynamic content rendering were implemented to ensure an optimized user experience.
 
 ---
 
@@ -15,7 +15,14 @@ This Android application is being developed as part of the DEPI initiative. The 
 ## Technologies Used
 
 - **Language:** Kotlin
-- **Tools:** Android Studio, Compose.
+- **Tools:** Android Studio, Jetpack Compose
+- **Architecture:** Clean Architecture, MVVM
+- **Libraries & Patterns:** Retrofit, Room, Design Patterns
+- **Data Management:** Data Sources, Domain Layer
+- **Dependency Injection:** Dagger Hilt  
+- **Concurrency:** Coroutines, Flow  
+- **UI & UX:** Material Design, Jetpack Compose Components
+- **State Management:** ViewModel, StateFlow  
 
 ---
 #### App List Screen  
