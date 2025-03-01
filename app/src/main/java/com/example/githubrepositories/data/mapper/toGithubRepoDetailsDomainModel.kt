@@ -1,9 +1,9 @@
 package com.example.githubrepositories.data.mapper
 
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_details.GithubDetailsDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.Item
 import com.example.githubrepositories.domain.model.GithubRepoDetailsDomainModel
 
-fun GithubDetailsDataModel.toGithubRepoDetailsDomainModel(): GithubRepoDetailsDomainModel{
+fun Item.toGithubRepoDetailsDomainModel(): GithubRepoDetailsDomainModel{
     return GithubRepoDetailsDomainModel(
         id = this.id,
         name = this.name,

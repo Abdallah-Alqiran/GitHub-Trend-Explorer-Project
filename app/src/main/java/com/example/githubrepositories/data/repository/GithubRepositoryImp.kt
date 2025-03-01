@@ -28,7 +28,7 @@ class GithubRepositoryImp @Inject constructor(
             val githubReposDataModel = githubReposRemoteDataSource.fetchGithubRepos()
 
             // then cache in ROOM
-            githubReposLocalDataSource.insertGithubRepoList(githubReposDataModel.githubDetailsDataModels.map { it.toGithubRepoEntity() })
+            githubReposLocalDataSource.insertGithubRepoList(githubReposDataModel.items.map { it.toGithubRepoEntity() })
 
             // then return cached data
             githubReposLocalDataSource.saveIsFirstTimeEnterApp(isFirstTime = false)

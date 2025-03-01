@@ -3,9 +3,9 @@ package com.example.githubrepositories.data.datasources.remote
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.GithubAPI
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoDetailsApi
 import com.example.githubrepositories.data.datasources.remote.retrofit.api.RepoIssuesApi
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_repo.GithubReposDataModel
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_issues.Issues
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_details.GithubDetailsDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.Issues
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.Item
 import com.example.githubrepositories.data.mapper.toCustomExceptionDomainModel
 import javax.inject.Inject
 
@@ -27,9 +27,9 @@ class GithubReposRemoteDataSource @Inject constructor(
     }
 
     // this function will return the details data
-    suspend fun fetchGithubRepositoryDetails(owner: String, name: String): GithubDetailsDataModel {
+    suspend fun fetchGithubRepositoryDetails(owner: String, name: String): Item {
         return try {
-            repoDetailsApi.fetchRepoDetails(owner, name).body() as GithubDetailsDataModel
+            repoDetailsApi.fetchRepoDetails(owner, name).body() as Item
         } catch(e: Exception) {
             throw e.toCustomExceptionDomainModel()
         }

@@ -1,6 +1,6 @@
 package com.example.githubrepositories.data.mapper
 
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_issues.Issues
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.Issues
 import com.example.githubrepositories.domain.model.GithubRepoIssuesDomainModel
 
 fun Issues.toGithubRepoIssuesDomainModel(): List<GithubRepoIssuesDomainModel> {

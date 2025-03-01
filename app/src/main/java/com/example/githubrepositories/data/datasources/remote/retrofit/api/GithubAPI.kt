@@ -1,7 +1,7 @@
 package com.example.githubrepositories.data.datasources.remote.retrofit.api
 
 import com.example.githubrepositories.data.Constants.Companion.END_REMOTE_URL
-import com.example.githubrepositories.data.datasources.remote.retrofit.model.for_repo.GithubReposDataModel
+import com.example.githubrepositories.data.datasources.remote.retrofit.model.GithubReposDataModel
 import retrofit2.Response
 import retrofit2.http.GET
 

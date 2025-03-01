@@ -1,4 +1,4 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model.unused
+package com.example.githubrepositories.data.datasources.remote.retrofit.model
 
 data class License(
     val key: String,

@@ -1,4 +1,4 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model.unused
+package com.example.githubrepositories.data.datasources.remote.retrofit.model
 
 import com.google.gson.annotations.SerializedName
 

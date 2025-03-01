@@ -1,4 +1,4 @@
-package com.example.githubrepositories.data.datasources.remote.retrofit.model.unused
+package com.example.githubrepositories.data.datasources.remote.retrofit.model
 
 data class PullRequest(
     val diff_url: String,
