@@ -5,6 +5,8 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
     id("com.google.devtools.ksp")
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -110,5 +112,19 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.51.1")
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    // Auth
+    implementation("com.google.firebase:firebase-auth-ktx")
+    // Firestore
+    implementation("com.google.firebase:firebase-firestore-ktx")
+    // Realtime Database
+    implementation("com.google.firebase:firebase-database-ktx")
+    // Cloud Messaging
+    implementation("com.google.firebase:firebase-messaging-ktx")
+
+
 }
 
