@@ -113,17 +113,19 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.51.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
 
-    // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.10.0"))
+
+    // Firebase BOM
+    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+
+    // Firebase services
     implementation("com.google.firebase:firebase-analytics")
-    // Auth
     implementation("com.google.firebase:firebase-auth-ktx")
-    // Firestore
     implementation("com.google.firebase:firebase-firestore-ktx")
-    // Realtime Database
     implementation("com.google.firebase:firebase-database-ktx")
-    // Cloud Messaging
     implementation("com.google.firebase:firebase-messaging-ktx")
+
+    // Google Play Services
+    implementation("com.google.android.gms:play-services-measurement-api:21.2.0")
 
 
 }
