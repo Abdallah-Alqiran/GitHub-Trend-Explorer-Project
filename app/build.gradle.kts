@@ -7,16 +7,18 @@ plugins {
     id("com.google.devtools.ksp")
 
     id("com.google.gms.google-services")
+
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.example.githubrepositories"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.githubrepositories"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -35,26 +37,32 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
+
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+        }
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -76,46 +84,44 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     //coil
-//    implementation("io.coil-kt.coil3:coil:3.1.0")
-//    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.1")
-    implementation("io.coil-kt:coil:2.5.0")
-    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("io.coil-kt:coil:2.7.0")
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
 
     // lottie
-    implementation("com.airbnb.android:lottie:6.6.2")
-    implementation("com.airbnb.android:lottie-compose:6.6.2")
+    implementation("com.airbnb.android:lottie:6.6.7")
+    implementation("com.airbnb.android:lottie-compose:6.6.7")
 
     // viewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.1")
 
     // coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
     // retrofit
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.google.code.gson:gson:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.okhttp3:okhttp:5.1.0")
+    implementation("com.google.code.gson:gson:2.13.1")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 
 
     // dataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.2")
+    implementation("androidx.datastore:datastore-preferences:1.1.7")
 
     // room
-    implementation("androidx.room:room-runtime:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-runtime:2.7.2")
+    ksp("androidx.room:room-compiler:2.7.2")
 
     // dependency injection
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    ksp("com.google.dagger:hilt-android-compiler:2.51.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.56.2")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
 
     // Firebase BOM
-    implementation(platform("com.google.firebase:firebase-bom:32.7.3"))
+    implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
 
     // Firebase services
     implementation("com.google.firebase:firebase-analytics")
@@ -125,7 +131,7 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging-ktx")
 
     // Google Play Services
-    implementation("com.google.android.gms:play-services-measurement-api:21.2.0")
+    implementation("com.google.android.gms:play-services-measurement-api:22.5.0")
 
 
 }

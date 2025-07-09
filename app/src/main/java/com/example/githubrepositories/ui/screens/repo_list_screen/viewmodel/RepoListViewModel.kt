@@ -43,5 +43,3 @@ class RepoListViewModel @Inject constructor(
         }
     }
 }
-
-
